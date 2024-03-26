@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Warehouse extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'location',
+        'isActive',
+    ];
+
+    protected $table = 'warehouse';
+
+    public function employee(){
+        return $this->hasMany(Machine::class);
+    }
 }

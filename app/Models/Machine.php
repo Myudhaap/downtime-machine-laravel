@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Machine extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'warehouse_id',
+        'machine_name',
+        'status',
+    ];
+
+    public function warehouse(){
+        return $this->belongsTo(Warehouse::class);
+    }
+
+    public function downtime(){
+        return $this->hasMany(Downtime::class);
+    }
 }

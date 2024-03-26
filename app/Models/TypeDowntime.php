@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class TypeDowntime extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public function downtime(){
+        return $this->hasMany(Downtime::class);
+    }
 }
