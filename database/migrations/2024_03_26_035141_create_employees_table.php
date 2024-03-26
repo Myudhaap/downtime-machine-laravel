@@ -23,7 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->date("birth_of_date");
             $table->boolean("isActive");
             $table->timestamps();
-            $table->foreign("user_id")->references("id")->on("user");
+            $table->foreign("user_id")->references("id")->on("user")->onDelete('cascade');
         });
     }
 

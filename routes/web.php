@@ -37,3 +37,14 @@ Route::post('/type-downtimes/add', [App\Http\Controllers\TypeDowntimeController:
 Route::get('/type-downtimes/{id}', [App\Http\Controllers\TypeDowntimeController::class, 'edit'])->name('type-downtime.edit');
 Route::put('/type-downtimes/{id}', [App\Http\Controllers\TypeDowntimeController::class, 'update'])->name('type-downtime.update');
 Route::delete('/type-downtimes/{id}', [App\Http\Controllers\TypeDowntimeController::class, 'destroy'])->name('type-downtime.destroy');
+
+Route::get('/downtimes', [App\Http\Controllers\DowntimeController::class, 'index'])->name('downtime.index');
+Route::get('/downtimes/add', [App\Http\Controllers\DowntimeController::class, 'create'])->name('downtime.create');
+Route::post('/downtimes/add', [App\Http\Controllers\DowntimeController::class, 'store'])->name('downtime.store');
+Route::get('/downtimes/{id}', [App\Http\Controllers\DowntimeController::class, 'edit'])->name('downtime.edit');
+Route::put('/downtimes/{id}', [App\Http\Controllers\DowntimeController::class, 'update'])->name('downtime.update');
+Route::delete('/downtimes/{id}', [App\Http\Controllers\DowntimeController::class, 'destroy'])->name('downtime.destroy');
+
+Route::get('/downtime-details/{id}', [App\Http\Controllers\DowntimeDetailController::class, 'index'])->name('downtime-detail.index');
+Route::post('/downtime-details', [App\Http\Controllers\DowntimeDetailController::class, 'store'])->name('downtime-detail.store');
+Route::delete('/downtime-details/{id}', [App\Http\Controllers\DowntimeDetailController::class, 'destroy'])->name('downtime-detail.destroy');

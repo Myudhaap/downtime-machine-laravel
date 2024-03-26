@@ -9,7 +9,7 @@
 @section('content')
     <div class="bg-white w-full p-3 shadow-sm rounded-3">
         <div class="row pb-3 justify-content-end">
-            <a href="{{ route('machine.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah</a>
+            <a href="{{ route('downtime.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah</a>
         </div>
 
         @if (session('success'))
@@ -24,8 +24,9 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Machine Name</th>
-                    <th scope="col">Warehouse Name</th>
-                    <th scope="col">status</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total Downtime</th>
                     <th scope="col" class="text-center">Action</th>
                   </tr>
                 </thead>
@@ -34,16 +35,16 @@
                     @forelse ($data as $val)
                     <tr>
                         <th scope="row">{{$count++}}</th>
-                        <td>{{$val['machine_name']}}</td>
-                        <td>{{$val->warehouse['name']}}</td>
-                        <td>{!!$val['status'] == 'Active' ?
-                            "<p class='btn btn-success'>Active</p>"
-                            :
-                            "<p class='btn btn-danger'>Deactive</p>"!!}
-                        </td>
+                        <td>{{$val->machine->machine_name}}</td>
+                        <td>{{$val->user->username}}</td>
+                        <td>{{$val->date}}</td>
+                        <td>{{$val->date}}</td>
                         <td class="row justify-content-center">
-                            <a class="d-block btn btn-primary text-white" href="{{ url("/machines"."/".$val['id']) }}"><i class="fas fa-edit"></i>Edit</a>
-                            <form class="mx-2" method="POST" action="{{ route('machine.destroy', ['id'=>$val['id']]) }}">
+                            <button class="d-block btn btn-primary text-white show mx-2" data-id="{{$val['id']}}"><i class="fas fa-eye"></i>Show</button>
+                            <div>
+                                <a class="d-block btn btn-primary text-white" href="{{ url("/downtimes"."/".$val['id']) }}"><i class="fas fa-edit"></i>Edit</a>
+                            </div>
+                            <form class="mx-2" method="POST" action="{{ route('downtime.destroy', ['id'=>$val['id']]) }}">
                                 @csrf
                                 @method("DELETE")
                                 <button type="submit" class="btn btn-danger text-white" href=""><i class="fas fa-trash"></i>Delete</button>
@@ -52,12 +53,16 @@
                     </tr>   
                     @empty
                         <tr>
-                            <th colspan="5" class="text-center">Data Machine tidak ada.</th>
+                            <th colspan="6" class="text-center">Data Downtime tidak ada.</th>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div id="tableDetail" class="bg-white mt-3 shadow-m">
+        
     </div>
 @stop
 
@@ -67,8 +72,22 @@
 
 @section('js')
     <script>
-        $(document).ready(dunction(){
-            console.log("tes")
+    $(document).ready(function(){
+
+        const shows = document.querySelectorAll(".show")
+        shows.forEach(function(el){
+            el.addEventListener("click", function(e){
+                const downtimeId = $(this).data('id')
+
+                $.ajax({
+                method: "GET",
+                url: "/downtime-details/"+downtimeId,
+                success: function(res){
+                    $("#tableDetail").html(res.html)
+                }
+            })
+            })
         })
+    })
     </script>
 @stop

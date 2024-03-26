@@ -19,7 +19,7 @@ class CreateMachinesTable extends Migration
             $table->string('machine_name',255);
             $table->enum('status', ['Active','Inactive']);
             $table->timestamps();
-            $table->foreign('warehouse_id')->references('id')->on('warehouse');
+            $table->foreign('warehouse_id')->references('id')->on('warehouse')->onDelete('cascade');
         });
     }
 

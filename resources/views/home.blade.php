@@ -7,13 +7,10 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Welcome to Downtime Machine v1.</p>
+    <div class="alert alert-warning">This section under construction.</div>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

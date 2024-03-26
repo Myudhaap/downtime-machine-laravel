@@ -19,8 +19,8 @@ class CreateDowntimesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('date');
             $table->timestamps();
-            $table->foreign('machine_id')->references('id')->on('machine');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('machine_id')->references('id')->on('machine')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
         });
     }
 

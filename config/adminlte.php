@@ -258,7 +258,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -319,11 +319,11 @@ return [
             'label_color' => 'success',
         ],
         ['header' => 'Master'],
-        [
-            'text' => 'User',
-            'url' => 'users/',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        //     'text' => 'User',
+        //     'url' => 'users/',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
         [
             'text' => 'Machine',
             'url' => 'machines/',
@@ -343,18 +343,18 @@ return [
         [
             'text' => 'Downtimes',
             'icon' => 'fas fa-fw fa-stopwatch',
-            'url' => 'downtime/',
+            'url' => 'downtimes/',
         ],
-        [
-            'text' => 'Report',
-            'icon' => 'fas fa-fw fa-book',
-            'submenu' => [
-                [
-                    'text' => 'Downtime',
-                    'url' => 'report/downtime/',
-                ],
-            ],
-        ],
+        // [
+        //     'text' => 'Report',
+        //     'icon' => 'fas fa-fw fa-book',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Downtime',
+        //             'url' => 'report/downtime/',
+        //         ],
+        //     ],
+        // ],
     ],
 
     /*

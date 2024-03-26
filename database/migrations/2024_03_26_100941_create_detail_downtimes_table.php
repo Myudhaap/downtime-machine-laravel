@@ -21,8 +21,8 @@ class CreateDetailDowntimesTable extends Migration
             $table->time('end_time');
             $table->string('description', 255);
             $table->timestamps();
-            $table->foreign('downtime_id')->references('id')->on('downtime');
-            $table->foreign('type_downtime_id')->references('id')->on('type_downtime');
+            $table->foreign('downtime_id')->references('id')->on('downtime')->onDelete('cascade');
+            $table->foreign('type_downtime_id')->references('id')->on('type_downtime')->onDelete('cascade');
         });
     }
 
