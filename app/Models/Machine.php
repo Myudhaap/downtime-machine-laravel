@@ -15,6 +15,8 @@ class Machine extends Model
         'status',
     ];
 
+    protected $table = "machine";
+
     public function warehouse(){
         return $this->belongsTo(Warehouse::class);
     }

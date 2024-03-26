@@ -69,6 +69,7 @@ return [
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+    'logo_img_url' => '/',
 
     /*
     |--------------------------------------------------------------------------
@@ -307,37 +308,42 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
             'text' => 'blog',
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
         [
             'text' => 'Dashboard',
-            'url' => 'admin/pages',
+            'url' => '/',
             'icon' => 'fas fa-fw fa-tachometer-alt',
-            'label' => 4,
             'label_color' => 'success',
         ],
         ['header' => 'Master'],
         [
             'text' => 'User',
-            'url' => 'admin/settings',
+            'url' => 'users/',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Machine',
+            'url' => 'machines/',
+            'icon' => 'fas fa-fw fa-hdd',
+        ],
+        [
             'text' => 'Warehouse',
-            'url' => 'admin/settings',
+            'url' => 'warehouses/',
             'icon' => 'fas fa-fw fa-warehouse',
+        ],
+        [
+            'text' => 'Type Downtime',
+            'url' => 'type-downtimes/',
+            'icon' => 'fas fa-fw fa-stopwatch',
         ],
         ['header' => 'Downtime'],
         [
-            'text' => 'Downtime',
+            'text' => 'Downtimes',
             'icon' => 'fas fa-fw fa-stopwatch',
-            'url' => '#',
+            'url' => 'downtime/',
         ],
         [
             'text' => 'Report',
@@ -345,7 +351,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Downtime',
-                    'url' => '#',
+                    'url' => 'report/downtime/',
                 ],
             ],
         ],

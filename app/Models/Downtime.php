@@ -11,18 +11,15 @@ class Downtime extends Model
 
     protected $fillable = [
         'machine_id',
-        'type_downtime_id',
+        'user_id',
         'date',
-        'start_time',
-        'end_time',
-        'description'
     ];
 
     public function machine(){
         return $this->belongsTo(Machine::class);
     }
 
-    public function typeDowntime(){
-        return $this->belongsTo(TypeDowntime::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

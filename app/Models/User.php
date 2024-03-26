@@ -45,6 +45,10 @@ class User extends Authenticatable
         return $this->hasOne(Employee::class);
     }
 
+    public function downtime(){
+        return $this->hasMany(Downtime::class);
+    }
+
     public function adminlte_image()
     {
         return 'https://picsum.photos/300/300';

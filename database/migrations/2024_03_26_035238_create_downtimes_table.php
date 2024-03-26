@@ -16,14 +16,11 @@ class CreateDowntimesTable extends Migration
         Schema::create('downtime', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('machine_id');
-            $table->unsignedBigInteger('type_downtime_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('date');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->string('description', 255);
             $table->timestamps();
             $table->foreign('machine_id')->references('id')->on('machine');
-            $table->foreign('type_downtime_id')->references('id')->on('type_downtime');
+            $table->foreign('user_id')->references('id')->on('user');
         });
     }
 

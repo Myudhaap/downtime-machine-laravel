@@ -9,11 +9,13 @@ class TypeDowntime extends Model
 {
     use HasFactory;
 
+    protected $table = "type_downtime";
+
     protected $fillable = [
         'name'
     ];
 
-    public function downtime(){
-        return $this->hasMany(Downtime::class);
+    public function detailDowntime(){
+        return $this->hasMany(DetailDowntime::class);
     }
 }
